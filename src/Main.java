@@ -105,13 +105,24 @@ public class Main {
         Integer y = 44;
 
         Predicate<Integer> condition = x -> x > 22;
-        condition.test(y);
+        System.out.println(condition.test(y));
         Function<Integer, Integer> ifTrue = x -> x * x;
+        System.out.println(ifTrue.apply(y));
         Function<Integer, Integer> ifFalse = x -> x + x;
-
+        System.out.println(ifFalse.apply(y));
+        ternaryOperator(condition, ifTrue, ifFalse);
+        System.out.println(ternaryOperator(condition, ifTrue, ifFalse));
 
     }
 
+    public static <T, U> Function<T, U> ternaryOperator(
+            Predicate<? super T> condition,
+            Function<? super T, ? extends U> ifTrue,
+            Function<? super T, ? extends U> ifFalse) {
+
+        return x -> condition.test(x) ? ifTrue.apply(x) : ifFalse.apply(x);
+
+    }
 
 }
 
