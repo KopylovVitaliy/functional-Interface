@@ -9,9 +9,9 @@ import java.util.function.Supplier;
 
 public class Main {
     public static void main(String[] args) {
-//        task1();
-//        task2();
-//        task3();
+        task1();
+        task2();
+        task3();
         task4();
         task5();
     }
@@ -102,7 +102,7 @@ public class Main {
 
     public static void task5() {
         System.out.println("Задача 5");
-        Integer y = 44;
+        Integer y = 21;
 
         Predicate<Integer> condition = x -> x > 22;
         System.out.println(condition.test(y));
@@ -111,7 +111,7 @@ public class Main {
         Function<Integer, Integer> ifFalse = x -> x + x;
         System.out.println(ifFalse.apply(y));
         ternaryOperator(condition, ifTrue, ifFalse);
-        System.out.println(ternaryOperator(condition, ifTrue, ifFalse));
+        System.out.println(ternaryOperator(condition, ifTrue, ifFalse).apply(y));
 
     }
 
